@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Object2JSON TEST</title>
+		<script type="text/javascript" src="object2json.js"></script>
+	</head>
+	<body>
+		<script>
+			var obj1 = {
+				b1 : true,
+				s1 : "text string",
+				n1 : 12345,
+				n2 : "null",
+				n3 : "undefined",
+				a1 : [1, 1, 2, 3, 5, 8, [13, 21, 34]],
+				o1 : {
+					a : [3, 2, 1],
+					b : {
+						c : 42,
+						d : [3.14, 1.618]
+					}
+				}
+			};
+			var obj = {};
+			obj.test1 = obj1;
+			obj.test2 = "obj1";
+			
+			var testobj = {
+				result: obj
+			};
+			var teststring = object2json (testobj);
+			console.dir (teststring);
+			console.dir (eval('(' + teststring + ')'));
+		</script>
+	</body>
+</html>
